@@ -1,17 +1,17 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-using Recipe.Models;
+using RecipeBox.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Recipe.Controllers
+namespace RecipeBox.Controllers
 {
   public class RecipesController : Controller
   {
-    private readonly RecipeContext _db;
+    private readonly RecipeBoxContext _db;
 
-    public RecipesController(RecipeContext db)
+    public RecipesController(RecipeBoxContext db)
     {
       _db = db;
     }

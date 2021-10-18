@@ -1,18 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-using Recipe.Models;
+using RecipeBox.Models;
 using System.Threading.Tasks;
-using Recipe.ViewModels;
+using RecipeBox.ViewModels;
 
-namespace Recipe.Controllers
+namespace RecipeBox.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly RecipeContext _db;
+        private readonly RecipeBoxContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public AccountController (UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ToDoListContext db)
+        public AccountController (UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RecipeBoxContext db)
         {
             _userManager = userManager;
             _signInManager = signInManager;
