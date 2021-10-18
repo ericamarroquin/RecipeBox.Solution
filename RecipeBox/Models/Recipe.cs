@@ -6,13 +6,13 @@ namespace RecipeBox.Models
   {
     public Recipe()
     {
-      this.JoinEntities = new HashSet<CategoryRecipe>();
+      this.JoinEntities = new HashSet<RecipeTag>();
     }
 
     public int RecipeId { get; set; }
     public string Description { get; set; }
     public virtual ApplicationUser User { get; set; }
 
-    public virtual ICollection<TagRecipe> JoinEntities { get;}
+    public virtual ICollection<RecipeTag> JoinEntities { get;}
   }
 }
