@@ -27,12 +27,15 @@ namespace RecipeBox.Controllers
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       var userItems = _db.Recipes.Where(entry => entry.User.Id == currentUser.Id).ToList();
-      return View(userItems);
+      List<Recipe> sortedItems = userItems.OrderByDescending(o => o.Ratings).ToList();
+      return View(sortedItems);
     }
 
     public ActionResult Create()
     {
       ViewBag.TagId = new SelectList(_db.Tags, "TagId", "Name");
+      List<int> RatingsList = new List<int>() {1,2,3,4,5};
+      ViewBag.Ratings = new SelectList(RatingsList, "Ratings");
       return View();
     }
 
@@ -51,7 +54,7 @@ namespace RecipeBox.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    
+
     public ActionResult Details(int id)
     {
       var thisRecipe = _db.Recipes
