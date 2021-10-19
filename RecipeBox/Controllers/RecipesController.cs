@@ -35,7 +35,7 @@ namespace RecipeBox.Controllers
       _db.SaveChanges();
       if (TagId != 0)
       {
-        _db.RecipeTag.Add(new RecipeTag() { CategoryId = CategoryId, ItemId = item.ItemId });
+        _db.RecipeTag.Add(new RecipeTag() { TagId = TagId, RecipeId = recipe.RecipeId });
       }
       _db.SaveChanges();
       return RedirectToAction("Index");
