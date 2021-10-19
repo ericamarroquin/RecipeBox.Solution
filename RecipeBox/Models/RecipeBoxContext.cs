@@ -6,7 +6,7 @@ namespace RecipeBox.Models
   {
     public DbSet<Tag> Tags { get; set; }
     public DbSet<Recipe> Recipes { get; set; }
-    public DbSet<RecipeTag> TagRecipe { get; set; }
+    public DbSet<RecipeTag> RecipeTag { get; set; }
 
     public RecipeBoxContext(DbContextOptions options) : base(options) { }
 

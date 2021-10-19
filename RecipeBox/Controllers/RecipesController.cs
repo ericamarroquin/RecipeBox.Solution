@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Identity;
 
 namespace RecipeBox.Controllers
 {
-  [Authorize]
   public class RecipesController : Controller
   {
     private readonly RecipeBoxContext _db;
@@ -21,6 +20,25 @@ namespace RecipeBox.Controllers
     public ActionResult Index()
     {
       return View(_db.Recipes.ToList());
+    }
+
+    public ActionResult Create()
+    {
+      ViewBag.TagId = new SelectList(_db.Tags, "TagId", "Name");
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Create(Recipe recipe, int TagId)
+    {
+      _db.Recipes.Add(recipe);
+      _db.SaveChanges();
+      if (TagId != 0)
+      {
+        _db.RecipeTag.Add(new RecipeTag() { CategoryId = CategoryId, ItemId = item.ItemId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
   }
 }
