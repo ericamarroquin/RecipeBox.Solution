@@ -46,11 +46,12 @@ namespace RecipeBox.Controllers
       _db.SaveChanges();
       if (TagId != 0)
       {
-          _db.RecipeTag.Add(new RecipeTag() { TagId = TagId, RecipeId = recipe.RecipeId });
+        _db.RecipeTag.Add(new RecipeTag() { TagId = TagId, RecipeId = recipe.RecipeId });
       }
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    
     public ActionResult Details(int id)
     {
       var thisRecipe = _db.Recipes
