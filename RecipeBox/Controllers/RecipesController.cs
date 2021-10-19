@@ -124,5 +124,11 @@ namespace RecipeBox.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    [HttpPost]
+    public ActionResult AddIngredients(string ingredient)
+    {
+      return RedirectToAction("Details");
+    }
   }
 }
