@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using RecipeBox.Models;
 
 namespace RecipeBox.Controllers
 {
@@ -11,5 +12,10 @@ namespace RecipeBox.Controllers
         return View();
       }
 
+      public IActionResult RandomRecipe()
+      {
+        var randomRecipe = Meal.GetMeal();
+        return View(randomRecipe);
+      }
     }
 }

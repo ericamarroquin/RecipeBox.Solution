@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+<h2>Recipe: @Model.StrMeal</h2>
+<h3>Category: @Model.StrCategory</h3>
+
+<h4>Instructions:</h4>
+<br>
+<p>@Model.StrInstructions</p>
+
+<br>
+<h4>Source: 
+  @if(Model.StrSource != null || Model.StrSource != "")
+  {
+    <p>@Model.StrSource</p>
+  }
+  else
+  {
+    <p></p>
+  }
+</h4>
+
+
